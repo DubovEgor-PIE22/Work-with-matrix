@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="rus">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменение матрицы</title>
+</head>
+<body>
+    <script>
+        var M, N;
+        M = prompt("Введите количество столбцов:");
+        N = prompt("Введите количество строк:");
+
+        M = parseInt(M);
+        N = parseInt(N);
+
+        if (M > 0 && N > 0) {
+            var matrix = [];
+            for (var i = 0; i < M; i++) {
+                var row = [];
+                for (var j = 0; j < N; j++) {
+                    var element = prompt("Введите элемент (" + (i + 1) + ", " + (j + 1) + "):");
+                    element = parseInt(element);
+                    if (!isNaN(element)) {
+                        row.push(element);
+                    } else {
+                        alert("Ошибка ввода.");
+                        break;
+                    }
+                }
+                matrix.push(row);
+            }
+
+            for (var i = 0; i < M / 2; i++) {
+                for (var j = N / 2; j < N; j++) {
+                    var temp = matrix[i][j];
+                    matrix[i][j] = matrix[i + M / 2][j - N / 2];
+                    matrix[i + M / 2][j - N / 2] = temp;
+                }
+            }
+
+            document.write("Изменённая матрица:<br>");
+            for (var i = 0; i < M; i++) {
+                for (var j = 0; j < N; j++) {
+                    document.write(matrix[i][j] + "\t");
+                }
+                document.write("<br>");
+            }
+        } else {
+            alert("Ошибка ввода.");
+        }
+    </script>
+</body>
+</html>
+
+
+

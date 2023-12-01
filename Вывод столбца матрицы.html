@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="rus">
+<head>
+    <meta charset="UTF-8">
+    <title>Вывод столбца матрицы</title>
+</head>
+<body>
+    <script>
+        var M = prompt("Введите количество столбцов:");
+        var N = prompt("Введите количество строк:");
+        var K = prompt("Введите номер искомого столбца:");
+
+        M = parseInt(M);
+        N = parseInt(N);
+        K = parseInt(K);
+
+        if (M > 0 && N > 0 && K >= 1 && K <= N) {
+            var matrix = [];
+            for (var i = 0; i < M; i++) {
+                var row = [];
+                for (var j = 0; j < N; j++) {
+                    var element = prompt("Введите элемент (" + (i + 1) + ", " + (j + 1) + "):");
+                    element = parseInt(element);
+                    if (!isNaN(element)) {
+                        row.push(element);
+                    } else {
+                        alert("Ошибка при вводе.");
+                        break;
+                    }
+                }
+                matrix.push(row);
+            }
+
+            document.write("Элементы столбца " + K + ":<br>");
+            for (var i = 0; i < M; i++) {
+                document.write(matrix[i][K - 1] + "<br>");
+            }
+        } else {
+            alert("Ошибка при вводе.");
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
